@@ -1,0 +1,1287 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="טבלת הניצחונות של ערב הפוקר השבועי — מלך הכבשים, הכבש השבועי, ומי לא הגיע.">
+<meta name="theme-color" content="#120C08">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🃏</text></svg>">
+<style>
+  html{color-scheme:dark}
+  body{margin:0;font-family:system-ui,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none !important}
+</style>
+<title>פנקס הפוקר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@500;700;900&display=swap">
+
+<style>
+/* ── tokens: one committed world — the Wooly Bluff back room ─────────── */
+:root{
+  --ground:#120C08;
+  --ground-2:#1A110A;
+  --panel:rgba(32,22,14,.76);
+  --panel-solid:#231810;
+  --panel-hi:rgba(255,226,180,.07);
+  --felt:#1C4734;
+  --felt-2:#215340;
+  --felt-3:#2A6349;
+  --rule:rgba(236,203,146,.17);
+  --rule-soft:rgba(236,203,146,.09);
+  --ink:#F6ECD9;
+  --ink-2:#C7B092;
+  --ink-3:#9B8365;
+  --amber:#EDA83C;
+  --amber-soft:rgba(237,168,60,.15);
+  --amber-glow:rgba(237,168,60,.34);
+  --out:#E2573E;
+  --out-soft:rgba(226,87,62,.15);
+
+  --c1:#AE8F26; --c2:#E4519A; --c3:#2E90D9; --c4:#5F9420;
+  --c5:#9D63DE; --c6:#159578; --c7:#BC7620;
+
+  --rad:16px;
+  --f-display:"Frank Ruhl Libre",Georgia,"Times New Roman",serif;
+  --f-body:"Assistant","Segoe UI",system-ui,sans-serif;
+  --f-num:"Heebo","Assistant",system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink)}
+
+.page{
+  font-family:var(--f-body);font-size:16px;line-height:1.55;color:var(--ink);
+  background:
+    radial-gradient(90% 55% at 12% 96%, rgba(237,168,60,.06), transparent 70%),
+    radial-gradient(70% 45% at 92% 62%, rgba(46,144,217,.05), transparent 70%),
+    var(--ground);
+  min-height:100vh;padding-block-end:60px;overflow-x:hidden;
+}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+.sprite{position:absolute;inline-size:0;block-size:0;overflow:hidden}
+
+/* ── hero: the painting itself ───────────────────────────────────────── */
+.hero{position:relative;isolation:isolate}
+.hero-art{
+  position:absolute;inset:0;z-index:-2;
+  background-image:url("table.jpg");
+  background-size:cover;background-position:50% 24%;
+}
+.hero-art::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(18,12,8,.34) 0%, rgba(18,12,8,.20) 22%, rgba(18,12,8,.72) 62%, var(--ground) 99%),
+    linear-gradient(90deg, rgba(18,12,8,.52), transparent 34%, transparent 66%, rgba(18,12,8,.52));
+}
+.masthead{
+  position:relative;
+  display:flex;flex-direction:column;gap:26px;
+  padding-block:clamp(180px,26vw,300px) 34px;
+}
+h1{
+  font-family:var(--f-display);font-weight:900;
+  font-size:clamp(46px,9vw,88px);line-height:.92;margin:0;letter-spacing:-.02em;
+  text-shadow:0 4px 30px rgba(0,0,0,.8),0 1px 0 rgba(0,0,0,.5);
+}
+h1 em{font-style:normal;color:var(--amber)}
+.tag{
+  color:var(--ink-2);font-size:clamp(15px,2.1vw,17px);max-width:46ch;margin:10px 0 0;
+  text-shadow:0 2px 14px rgba(0,0,0,.85);
+}
+.facts{display:flex;gap:10px;flex-wrap:wrap}
+.fact{
+  display:flex;flex-direction:column;gap:2px;padding:11px 18px;border-radius:13px;
+  background:rgba(18,12,8,.62);border:1px solid var(--rule);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.fact b{font-family:var(--f-num);font-weight:900;font-size:28px;line-height:1;font-variant-numeric:tabular-nums}
+.fact.lead b{color:var(--amber);font-family:var(--f-display);font-size:24px}
+.fact span{font-size:11px;letter-spacing:.14em;color:var(--ink-3);font-weight:700}
+
+/* ── shared panel ────────────────────────────────────────────────────── */
+.panel{
+  background:var(--panel);border:1px solid var(--rule);border-radius:var(--rad);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--panel-hi) inset, 0 24px 60px -34px rgba(0,0,0,.95);
+}
+
+/* ── the last night: king & sheep ────────────────────────────────────── */
+.headline{display:grid;grid-template-columns:1fr;gap:12px;margin-top:-12px}
+@media (min-width:560px){
+  .headline{grid-template-columns:repeat(2,1fr)}
+  .hl.dry{grid-column:span 2}
+}
+@media (min-width:1080px){
+  .headline{grid-template-columns:repeat(3,1fr)}
+  .hl.dry{grid-column:auto}
+}
+.hl{
+  position:relative;display:flex;align-items:center;gap:16px;padding:18px 20px;overflow:hidden;
+}
+.hl .mark{
+  inline-size:52px;block-size:52px;border-radius:14px;flex:0 0 auto;
+  display:grid;place-items:center;border:1px solid var(--rule);
+}
+.hl .mark svg{inline-size:30px;block-size:25px}
+.hl .txt{display:flex;flex-direction:column;gap:1px;min-width:0}
+.hl .lbl{font-size:11px;letter-spacing:.15em;font-weight:700;color:var(--ink-3)}
+.hl .who{
+  font-family:var(--f-display);font-weight:900;font-size:26px;line-height:1.12;
+  overflow-wrap:anywhere;
+}
+.hl .sub{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.hl.king{background:linear-gradient(105deg,var(--amber-soft),transparent 58%),var(--panel);border-color:var(--amber)}
+.hl.king .mark{color:var(--amber);background:var(--amber-soft);border-color:var(--amber-glow)}
+.hl.king .who{color:var(--amber)}
+.hl.sheep .mark{color:var(--out);background:var(--out-soft);border-color:var(--out-soft)}
+.hl.sheep .who{color:var(--ink)}
+.hl.dry .mark{color:var(--out);background:var(--out-soft);border-color:var(--out-soft)}
+.hl.dry.clean .mark{color:var(--amber);background:var(--amber-soft);border-color:var(--amber-glow)}
+.hl .who .num{
+  font-family:var(--f-num);font-style:normal;font-weight:900;font-size:34px;line-height:1;
+  font-variant-numeric:tabular-nums;color:var(--out);margin-inline-end:4px;
+}
+.hl.dry.clean .who .num{color:var(--amber)}
+.hl .when{
+  margin-inline-start:auto;font-family:var(--f-num);font-size:12px;color:var(--ink-3);
+  font-variant-numeric:tabular-nums;white-space:nowrap;align-self:flex-start;
+}
+
+/* ── unsaved changes ─────────────────────────────────────────────────── */
+.dirty{
+  display:flex;gap:12px 16px;align-items:center;flex-wrap:wrap;margin-top:12px;
+  padding:14px 18px;border-radius:13px;
+  border:1px solid var(--amber);background:linear-gradient(105deg,var(--amber-soft),transparent 70%),var(--panel);
+}
+.dirty .ico{inline-size:22px;block-size:18px;color:var(--amber);flex:0 0 auto}
+.dirty .msg{font-size:14.5px;color:var(--ink);font-weight:700}
+.dirty .msg em{font-style:normal;display:block;font-weight:400;color:var(--ink-2);font-size:13.5px}
+.dirty .acts{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.dirty a.btn{text-decoration:none;display:inline-block}
+.dirty[hidden],.ro .dirty{display:none}
+.steps{margin:0;padding:0;list-style:none;display:flex;gap:8px;flex-wrap:wrap;
+  font-size:12px;color:var(--ink-3);inline-size:100%}
+.steps li{display:flex;gap:5px;align-items:center}
+.steps b{font-family:var(--f-num);color:var(--amber);font-weight:900}
+
+/* ── notice ──────────────────────────────────────────────────────────── */
+.notice{
+  display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:12px;
+  padding:12px 18px;border:1px dashed var(--rule);border-radius:13px;
+  background:rgba(32,22,14,.6);color:var(--ink-2);font-size:14.5px;
+}
+.notice strong{color:var(--ink);font-weight:700}
+.notice .spacer{flex:1 1 auto}
+
+/* ── section heads ───────────────────────────────────────────────────── */
+.sec{margin-top:38px}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.sec-head h2{font-family:var(--f-display);font-weight:700;font-size:25px;margin:0;letter-spacing:-.01em}
+.sec-head .hint{color:var(--ink-3);font-size:13.5px}
+.sec-head .tools{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap}
+
+/* ── buttons ─────────────────────────────────────────────────────────── */
+.btn{
+  font-family:var(--f-body);font-size:14px;font-weight:700;padding:9px 16px;border-radius:11px;
+  border:1px solid var(--rule);background:rgba(42,30,20,.7);color:var(--ink);cursor:pointer;
+  transition:background .15s ease,border-color .15s ease,transform .1s ease;
+}
+.btn:hover{background:rgba(58,42,27,.85);border-color:var(--ink-3)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:#1A1006;box-shadow:0 6px 22px -10px var(--amber-glow)}
+.btn.primary:hover{filter:brightness(1.09)}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--out);border-color:var(--out-soft)}
+.btn.danger:hover{background:var(--out-soft);border-color:var(--out)}
+.btn.tiny{padding:5px 11px;font-size:12.5px;border-radius:9px}
+:where(button,input,a,summary):focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:9px}
+
+/* ── standings ───────────────────────────────────────────────────────── */
+.standings{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:560px){
+  .standings{grid-template-columns:repeat(2,1fr)}
+  .pcard.lead{grid-column:span 2}
+}
+@media (min-width:1000px){
+  .standings{grid-template-columns:repeat(4,1fr)}
+}
+.pcard{
+  position:relative;display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:var(--rad);
+  transition:transform .16s ease,border-color .16s ease;
+}
+.pcard:hover{transform:translateY(-3px);border-color:var(--ink-3)}
+.pcard.lead{
+  border-color:var(--amber);
+  background:linear-gradient(180deg,var(--amber-soft),transparent 46%),var(--panel);
+  box-shadow:0 1px 0 var(--panel-hi) inset, 0 0 0 1px var(--amber-glow), 0 26px 60px -34px rgba(0,0,0,.95);
+}
+.pcard-top{display:flex;align-items:center;gap:11px}
+.rank{font-family:var(--f-num);font-weight:700;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;min-width:20px}
+.pcard.lead .rank{color:var(--amber)}
+.chip{
+  --chip:var(--c1);position:relative;inline-size:40px;block-size:40px;border-radius:50%;flex:0 0 auto;
+  display:grid;place-items:center;
+  background:repeating-conic-gradient(from 12deg, rgba(255,255,255,.88) 0 9deg, transparent 9deg 45deg),var(--chip);
+  box-shadow:inset 0 0 0 5px var(--chip), inset 0 0 0 6px rgba(0,0,0,.28), 0 4px 14px -6px rgba(0,0,0,.9);
+  color:#fff;
+}
+.chip b{font-family:var(--f-display);font-weight:900;font-size:16px;line-height:1;position:relative;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.pname{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.1;letter-spacing:-.01em}
+.leadmark{margin-inline-start:auto;color:var(--amber);inline-size:24px;block-size:20px}
+.pcard-nums{display:flex;align-items:flex-end;gap:12px}
+.big{font-family:var(--f-num);font-weight:900;font-size:42px;line-height:.88;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.pcard.lead .big{color:var(--amber)}
+.pcard-nums small{color:var(--ink-3);font-size:11.5px;font-weight:700;letter-spacing:.1em;padding-bottom:5px}
+.pmeta{display:flex;gap:8px;flex-wrap:wrap;color:var(--ink-2);font-size:12.5px;font-variant-numeric:tabular-nums}
+.pmeta i{font-style:normal;color:var(--ink-3)}
+.ptags{display:flex;gap:6px;flex-wrap:wrap}
+.tagpill{
+  display:flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700;
+  border:1px solid var(--rule-soft);background:rgba(18,12,8,.5);font-variant-numeric:tabular-nums;
+}
+.tagpill svg{inline-size:15px;block-size:13px}
+.tagpill.k{color:var(--amber);border-color:var(--amber-soft)}
+.tagpill.s{color:var(--out);border-color:var(--out-soft)}
+.tagpill.d{color:var(--ink-2);border-color:var(--rule-soft)}
+.tagpill.d svg{color:var(--out)}
+
+.spark{direction:ltr;display:flex;align-items:flex-end;gap:2px;block-size:34px;padding-top:2px}
+.spark .b{flex:1 1 0;min-inline-size:3px;border-radius:2px 2px 0 0;background:var(--chip);opacity:.9;align-self:flex-end}
+.spark .b.zero{block-size:2px;opacity:.35}
+.spark .b.absent{
+  block-size:5px;border-radius:2px;opacity:1;
+  background:repeating-linear-gradient(45deg,var(--out) 0 2px,transparent 2px 4px),var(--out-soft);
+  box-shadow:inset 0 0 0 1px var(--out);
+}
+.spark-cap{display:flex;justify-content:space-between;color:var(--ink-3);font-size:10.5px;letter-spacing:.06em;direction:ltr}
+
+/* ── ledger table: the felt ──────────────────────────────────────────── */
+.table-wrap{
+  overflow-x:auto;border:1px solid var(--rule);border-radius:var(--rad);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,.05) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg,var(--felt-2),var(--felt));
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 26px 64px -34px rgba(0,0,0,.95);
+}
+table{border-collapse:separate;border-spacing:0;inline-size:100%;min-inline-size:920px}
+th,td{padding:0;text-align:center;vertical-align:middle}
+thead th{
+  padding:13px 8px 12px;border-bottom:1px solid var(--rule);
+  background:rgba(12,32,23,.6);font-weight:700;font-size:13px;color:var(--ink-2);white-space:nowrap;
+}
+thead th .hname{display:flex;flex-direction:column;align-items:center;gap:5px}
+thead th .hdot{inline-size:9px;block-size:9px;border-radius:50%;background:var(--chip);box-shadow:0 0 0 2px rgba(0,0,0,.25)}
+thead th.date-col,tfoot td.date-col{text-align:start}
+.date-col{
+  position:sticky;inset-inline-start:0;z-index:2;
+  background:rgba(12,32,23,.94);border-inline-end:1px solid var(--rule);
+  padding-inline:16px !important;min-inline-size:132px;
+}
+tbody td.date-col{background:rgba(14,38,27,.96)}
+tbody tr:nth-child(even) td{background:rgba(255,255,255,.028)}
+tbody tr:nth-child(even) td.date-col{background:rgba(16,42,30,.96)}
+tbody tr:hover td{background:rgba(255,255,255,.055)}
+tbody tr:hover td.date-col{background:rgba(20,50,36,.97)}
+tbody td{border-bottom:1px solid rgba(0,0,0,.2);padding:7px 6px}
+tbody tr:last-child td{border-bottom:0}
+
+.datecell{display:flex;flex-direction:column;gap:1px;align-items:flex-start;padding-block:6px}
+.datecell b{font-family:var(--f-num);font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+.datecell span{font-size:11.5px;color:var(--ink-3)}
+
+.score{position:relative;display:grid;place-items:center;inline-size:100%;min-inline-size:46px;block-size:44px;border-radius:10px;overflow:hidden;border:1px solid transparent}
+.score .fill{
+  position:absolute;inset-inline:3px;bottom:3px;block-size:calc(var(--f) * 76%);min-block-size:3px;
+  border-radius:4px 4px 3px 3px;background:color-mix(in srgb, var(--chip) 26%, transparent);
+  border-top:2px solid var(--chip);
+}
+.score b{position:relative;font-family:var(--f-num);font-weight:700;font-size:17px;font-variant-numeric:tabular-nums}
+.score.nil b{color:var(--ink-3);font-weight:500}
+.score.sheep{background:var(--out-soft);box-shadow:inset 0 0 0 1px rgba(226,87,62,.34)}
+.score.sheep b{color:var(--out);font-weight:900}
+.score.top{border-color:var(--amber);background:var(--amber-soft);box-shadow:0 0 18px -6px var(--amber-glow)}
+.score.top b{color:var(--amber);font-weight:900}
+.score .pip{position:absolute;inset-block-start:3px;inset-inline-end:4px;inline-size:13px;block-size:11px;color:var(--amber)}
+.score .pip.s{color:var(--out)}
+.absent{
+  display:grid;place-items:center;inline-size:100%;min-inline-size:46px;block-size:44px;border-radius:10px;
+  color:var(--out);font-size:15px;font-weight:700;
+  background:repeating-linear-gradient(45deg,var(--out-soft) 0 5px,transparent 5px 10px);
+  box-shadow:inset 0 0 0 1px var(--out-soft);
+}
+.verdict{display:flex;align-items:center;gap:6px;justify-content:center;padding-inline:10px;font-family:var(--f-display);font-weight:700;font-size:14.5px;white-space:nowrap}
+.verdict svg{inline-size:17px;block-size:14px;flex:0 0 auto}
+.verdict.k{color:var(--amber)}
+.verdict.s{color:var(--out)}
+.verdict.none{color:var(--ink-3);font-family:var(--f-body);font-weight:600}
+.rowtools{display:flex;gap:4px;justify-content:center;padding-inline-end:8px}
+.icon{inline-size:29px;block-size:29px;display:grid;place-items:center;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--ink-3);cursor:pointer;font-size:14px;line-height:1}
+.icon:hover{color:var(--ink);border-color:var(--rule);background:rgba(255,255,255,.07)}
+.icon.del:hover{color:var(--out);border-color:var(--out-soft);background:var(--out-soft)}
+
+tfoot td{border-top:1px solid var(--rule);background:rgba(12,32,23,.72);padding:13px 6px;font-family:var(--f-num);font-weight:900;font-size:16px;font-variant-numeric:tabular-nums}
+tfoot td.date-col{font-family:var(--f-body);font-size:12px;font-weight:700;letter-spacing:.11em;color:var(--ink-3)}
+tfoot td.best{color:var(--amber)}
+.empty{padding:44px 20px;text-align:center;color:var(--ink-2)}
+.ro .sec-head .tools,.ro .rowtools,.ro #clearSample,.ro #resetBtn,.ro #sampleNotice,
+.ro #logoutBtn{display:none !important}
+.page:not(.ro) #loginBtn{display:none}
+.authnote{margin:0;color:var(--ink-2);font-size:13.5px}
+.autherr{margin:0;color:var(--out);font-size:13.5px;font-weight:700}
+.dlg .fld input[type="text"],.dlg .fld input[type="password"]{
+  font-family:var(--f-body);font-size:15px;padding:10px 12px;border-radius:11px;
+  border:1px solid var(--rule);background:rgba(255,255,255,.05);color:var(--ink);inline-size:100%;
+}
+.whoami{display:flex;align-items:center;gap:7px;color:var(--amber);font-weight:700}
+.whoami[hidden],.autherr[hidden],.ro .whoami{display:none}
+.whoami svg{inline-size:17px;block-size:14px}
+
+/* ── legend ──────────────────────────────────────────────────────────── */
+.legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:14px;font-size:13px;color:var(--ink-2)}
+.legend .item{display:flex;gap:8px;align-items:center}
+.sw{inline-size:28px;block-size:24px;border-radius:7px;display:grid;place-items:center;font-size:11px;font-weight:700}
+.sw.a{background:repeating-linear-gradient(45deg,var(--out-soft) 0 5px,transparent 5px 10px);box-shadow:inset 0 0 0 1px var(--out-soft);color:var(--out)}
+.sw.t{border:1px solid var(--amber);background:var(--amber-soft);color:var(--amber)}
+.sw.z{background:var(--out-soft);box-shadow:inset 0 0 0 1px rgba(226,87,62,.34);color:var(--out)}
+.sw.n{background:rgba(255,255,255,.05);color:var(--ink-3)}
+.sw.f{background:rgba(255,255,255,.07);box-shadow:inset 0 -8px 0 rgba(46,144,217,.32)}
+
+footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--rule);display:flex;gap:16px;flex-wrap:wrap;align-items:center;color:var(--ink-3);font-size:13px}
+footer .tools{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap}
+
+/* ── dialog ──────────────────────────────────────────────────────────── */
+dialog{
+  border:1px solid var(--rule);border-radius:18px;padding:0;background:var(--panel-solid);color:var(--ink);
+  inline-size:min(540px,calc(100vw - 32px));box-shadow:0 40px 90px -34px rgba(0,0,0,.96);
+}
+dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.dlg{padding:22px;display:flex;flex-direction:column;gap:16px;font-family:var(--f-body)}
+.dlg h3{font-family:var(--f-display);font-weight:700;font-size:23px;margin:0}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld span{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--ink-3)}
+.fld input[type="date"]{font-family:var(--f-num);font-size:15px;padding:10px 12px;border-radius:11px;border:1px solid var(--rule);background:rgba(255,255,255,.05);color:var(--ink);inline-size:100%;color-scheme:dark}
+.dlg-players{display:flex;flex-direction:column;gap:6px;max-block-size:46vh;overflow-y:auto;padding-inline-end:2px}
+.prow{--chip:var(--c1);display:flex;align-items:center;gap:10px;padding:8px 11px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid var(--rule-soft)}
+.prow.off{opacity:.5}
+.prow .dot{inline-size:12px;block-size:12px;border-radius:50%;background:var(--chip);flex:0 0 auto}
+.prow .nm{font-family:var(--f-display);font-weight:700;font-size:17px;min-inline-size:58px}
+.prow .tog{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);cursor:pointer;margin-inline-start:auto}
+.prow .tog input{accent-color:var(--amber);inline-size:15px;block-size:15px;cursor:pointer}
+.stepper{display:flex;align-items:center;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:rgba(0,0,0,.28)}
+.stepper button{inline-size:31px;block-size:33px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;font-size:17px;line-height:1;font-family:var(--f-body)}
+.stepper button:hover{background:rgba(255,255,255,.08);color:var(--ink)}
+.stepper input{inline-size:46px;block-size:33px;border:0;text-align:center;background:transparent;color:var(--ink);font-family:var(--f-num);font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.stepper[aria-disabled="true"]{opacity:.4;pointer-events:none}
+.dlg-actions{display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap}
+.dlg-actions .del{margin-inline-end:auto}
+
+#toast{
+  position:fixed;inset-block-end:22px;inset-inline:0;margin-inline:auto;inline-size:fit-content;
+  max-inline-size:calc(100vw - 32px);padding:11px 20px;border-radius:999px;
+  background:var(--ink);color:var(--ground);font-family:var(--f-body);font-size:14px;font-weight:700;
+  box-shadow:0 16px 40px -14px rgba(0,0,0,.8);opacity:0;transform:translateY(8px);pointer-events:none;
+  transition:opacity .2s ease,transform .2s ease;z-index:50;
+}
+#toast.on{opacity:1;transform:none}
+
+@media (max-width:640px){
+  .masthead{padding-block:clamp(150px,44vw,230px) 26px;gap:20px}
+  .fact{padding:9px 14px}
+  .fact b{font-size:24px}
+  .legend{gap:10px 16px;font-size:12.5px}
+  .hl{padding:15px 16px;gap:13px}
+  .hl .who{font-size:22px}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation-duration:.01ms !important}}
+</style>
+</head>
+<body>
+
+
+<svg class="sprite" aria-hidden="true" focusable="false"><defs>
+  <symbol id="crown" viewBox="0 0 48 40">
+    <g fill="currentColor">
+      <path d="M6.6 12.2 16 19.2 22.6 7.9a1.6 1.6 0 0 1 2.8 0L32 19.2l9.4-7c1.4-1 3.2.2 2.9 1.9l-3.5 16.6a1.6 1.6 0 0 1-1.6 1.3H8.8a1.6 1.6 0 0 1-1.6-1.3L3.7 14.1c-.3-1.7 1.5-2.9 2.9-1.9z"/>
+      <rect x="8.4" y="33.4" width="31.2" height="4.6" rx="2"/>
+    </g>
+  </symbol>
+  <symbol id="sheep" viewBox="0 0 48 40">
+    <g fill="currentColor">
+      <rect x="12.4" y="26" width="3.4" height="8.6" rx="1.7"/>
+      <rect x="21.2" y="27" width="3.4" height="7.6" rx="1.7"/>
+      <circle cx="14.6" cy="19.4" r="7.1"/>
+      <circle cx="21.8" cy="14.8" r="7.1"/>
+      <circle cx="25.4" cy="22.4" r="7.1"/>
+      <circle cx="15.4" cy="25.4" r="6.2"/>
+      <ellipse cx="34.2" cy="19.6" rx="6.1" ry="7.1"/>
+      <ellipse cx="39.9" cy="14.6" rx="3.4" ry="2.1" transform="rotate(-28 39.9 14.6)"/>
+      <rect x="31.4" y="26.6" width="3.2" height="8" rx="1.6"/>
+    </g>
+  </symbol>
+  <symbol id="zero" viewBox="0 0 48 40">
+    <g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round">
+      <circle cx="24" cy="20" r="13"/>
+      <path d="M14.8 29.2 33.2 10.8"/>
+    </g>
+  </symbol>
+</defs></svg>
+
+<div class="page ro" dir="rtl" lang="he">
+
+  <div class="hero">
+    <div class="hero-art" role="img" aria-label="ציור: כבשים ואיילים משחקים פוקר במועדון Wooly Bluff"></div>
+    <div class="wrap masthead">
+      <div>
+        <h1>פנקס <em>הפוקר</em></h1>
+        <p class="tag">כמה ניצח כל אחד ומי יצא כבש, הפנקס רושם הכל</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b id="factNights">0</b><span>ערבים</span></div>
+        <div class="fact"><b id="factWins">0</b><span>ניצחונות</span></div>
+        <div class="fact lead"><b id="factLeader">—</b><span>מוביל כללי</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="headline" id="headline" aria-label="הערב האחרון"></section>
+
+    <div class="dirty" id="dirtyBar" hidden>
+      <svg class="ico" aria-hidden="true"><use href="#crown"/></svg>
+      <span class="msg">יש שינויים שעוד לא נשמרו בגיטהאב
+        <em>הם קיימים רק בדפדפן שלך. שלושה צעדים והם באוויר.</em>
+      </span>
+      <span class="acts">
+        <button class="btn tiny" id="copyJson" type="button">1 · העתק JSON</button>
+        <a class="btn tiny" id="ghEdit" href="#" target="_blank" rel="noopener">2 · פתח את data.json</a>
+        <button class="btn tiny ghost danger" id="discardBtn" type="button">בטל שינויים</button>
+      </span>
+      <ul class="steps">
+        <li><b>3</b> הדבק במקום כל התוכן ולחץ Commit changes — הטבלה תתעדכן לכולם תוך דקה.</li>
+      </ul>
+    </div>
+
+    <div class="notice" id="sampleNotice" hidden>
+      <svg style="inline-size:22px;block-size:18px;color:var(--amber)" aria-hidden="true"><use href="#sheep"/></svg>
+      <span><strong>הנתונים שמוצגים כאן הם דוגמה.</strong> ערכו כל שורה, או נקו הכול והתחילו מהערב הראשון האמיתי.</span>
+      <span class="spacer"></span>
+      <button class="btn tiny danger" id="clearSample" type="button">נקה והתחל מאפס</button>
+    </div>
+
+    <section class="sec">
+      <div class="sec-head">
+        <h2>טבלת המובילים</h2>
+        <span class="hint">לפי סך הניצחונות</span>
+      </div>
+      <div class="standings" id="standings"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head">
+        <h2>הפנקס</h2>
+        <span class="hint">שורה לכל ערב · מהחדש לישן</span>
+        <div class="tools">
+          <button class="btn primary" id="addNight" type="button">+ הוסף ערב</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="ledger">
+          <thead id="thead"></thead>
+          <tbody id="tbody"></tbody>
+          <tfoot id="tfoot"></tfoot>
+        </table>
+      </div>
+      <div class="legend">
+        <span class="item"><span class="sw f">3</span> ניצחונות בערב</span>
+        <span class="item"><span class="sw t">5</span> מלך הכבשים</span>
+        <span class="item"><span class="sw z">0</span> הכבש השבועי</span>
+        <span class="item"><span class="sw n">0</span> שיחק ולא ניצח</span>
+        <span class="item"><span class="sw a">✕</span> לא שיחק</span>
+      </div>
+    </section>
+
+    <footer>
+      <span id="storeState">נשמר במכשיר הזה</span>
+      <span class="whoami" id="whoami" hidden>
+        <svg aria-hidden="true"><use href="#crown"/></svg>מחובר כמנהל
+      </span>
+      <div class="tools">
+        <button class="btn tiny ghost" id="exportBtn" type="button">ייצוא JSON</button>
+        <button class="btn tiny ghost danger" id="resetBtn" type="button">איפוס הפנקס</button>
+        <button class="btn tiny ghost" id="loginBtn" type="button">כניסת מנהל</button>
+        <button class="btn tiny ghost" id="logoutBtn" type="button">יציאה</button>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <form class="dlg" id="dlgForm" method="dialog" dir="rtl">
+    <h3 id="dlgTitle">ערב חדש</h3>
+    <label class="fld" for="dlgDate"><span>תאריך הערב</span>
+      <input type="date" id="dlgDate" name="date" required>
+    </label>
+    <div class="dlg-players" id="dlgPlayers"></div>
+    <div class="dlg-actions">
+      <button type="button" class="btn tiny danger del" id="dlgDelete" hidden>מחק ערב</button>
+      <button type="button" class="btn ghost" id="dlgCancel">ביטול</button>
+      <button type="submit" class="btn primary">שמור ערב</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="authDlg" aria-labelledby="authTitle">
+  <form class="dlg" id="authForm" dir="rtl">
+    <h3 id="authTitle">כניסת מנהל</h3>
+    <p class="authnote">הפנקס פתוח לצפייה לכולם. העריכה שמורה לבעל הפנקס.</p>
+    <label class="fld" for="authUser"><span>שם משתמש</span>
+      <input type="text" id="authUser" autocomplete="username" autocapitalize="off" spellcheck="false" required>
+    </label>
+    <label class="fld" for="authPass"><span>סיסמה</span>
+      <input type="password" id="authPass" autocomplete="current-password" required>
+    </label>
+    <p class="autherr" id="authErr" hidden>שם משתמש או סיסמה שגויים.</p>
+    <div class="dlg-actions">
+      <button type="button" class="btn ghost" id="authCancel">ביטול</button>
+      <button type="submit" class="btn primary">כניסה</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script id="ledger-state" type="application/json">{"v": 1, "sample": true, "nights": [{"id": "seed-0", "date": "2026-09-17", "results": {"זיו": 4, "אלדר": 2, "פלח": null, "אלוש": 1, "פיטרו": 3, "עומר": 0, "אלבז": 1}}, {"id": "seed-1", "date": "2026-09-10", "results": {"זיו": 1, "אלדר": 5, "פלח": 2, "אלוש": null, "פיטרו": 0, "עומר": 2, "אלבז": null}}, {"id": "seed-2", "date": "2026-09-03", "results": {"זיו": 2, "אלדר": 1, "פלח": 4, "אלוש": 2, "פיטרו": null, "עומר": 1, "אלבז": 0}}, {"id": "seed-3", "date": "2026-08-27", "results": {"זיו": 3, "אלדר": 0, "פלח": 1, "אלוש": 4, "פיטרו": 2, "עומר": null, "אלבז": 2}}, {"id": "seed-4", "date": "2026-08-20", "results": {"זיו": 0, "אלדר": 3, "פלח": 2, "אלוש": 1, "פיטרו": 4, "עומר": 1, "אלבז": null}}, {"id": "seed-5", "date": "2026-08-13", "results": {"זיו": 5, "אלדר": 1, "פלח": null, "אלוש": 0, "פיטרו": 1, "עומר": 3, "אלבז": 1}}, {"id": "seed-6", "date": "2026-08-06", "results": {"זיו": 2, "אלדר": 2, "פלח": 3, "אלוש": null, "פיטרו": 1, "עומר": 0, "אלבז": 3}}, {"id": "seed-7", "date": "2026-07-30", "results": {"זיו": 1, "אלדר": 4, "פלח": 0, "אלוש": 2, "פיטרו": null, "עומר": 2, "אלבז": 1}}, {"id": "seed-8", "date": "2026-07-23", "results": {"זיו": 3, "אלדר": 0, "פלח": 2, "אלוש": 3, "פיטרו": 2, "עומר": null, "אלבז": 0}}, {"id": "seed-9", "date": "2026-07-16", "results": {"זיו": 2, "אלדר": 1, "פלח": 1, "אלוש": null, "פיטרו": 3, "עומר": 2, "אלבז": 2}}]}</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ── players ─────────────────────────────────────────────────────── */
+  var PLAYERS = ["זיו","אלדר","פלח","אלוש","פיטרו","עומר","אלבז"];
+  var CHIP = {"זיו":"var(--c3)","אלדר":"var(--c5)","פלח":"var(--c7)","אלוש":"var(--c6)",
+              "פיטרו":"var(--c2)","עומר":"var(--c4)","אלבז":"var(--c1)"};
+
+  /* ── seed: ten example nights, Thursdays, July–September 2026 ────── */
+  function seed(){
+    var rows = [
+      ["2026-09-17", [4,2,null,1,3,0,1]],
+      ["2026-09-10", [1,5,2,null,0,2,null]],
+      ["2026-09-03", [2,1,4,2,null,1,0]],
+      ["2026-08-27", [3,0,1,4,2,null,2]],
+      ["2026-08-20", [0,3,2,1,4,1,null]],
+      ["2026-08-13", [5,1,null,0,1,3,1]],
+      ["2026-08-06", [2,2,3,null,1,0,3]],
+      ["2026-07-30", [1,4,0,2,null,2,1]],
+      ["2026-07-23", [3,0,2,3,2,null,0]],
+      ["2026-07-16", [2,1,1,null,3,2,2]]
+    ];
+    return {v:1, sample:true, nights: rows.map(function(r,i){
+      var res = {};
+      PLAYERS.forEach(function(p,j){ res[p] = r[1][j]; });
+      return {id:"seed-"+i, date:r[0], results:res};
+    })};
+  }
+
+  var state = null;
+
+  /* ── storage ─────────────────────────────────────── */
+  /* data.json in the repo is the single source of truth: every visitor reads
+     it. An admin's edits live in this browser until they are committed back,
+     so a half-finished evening never reaches anyone else. */
+  var GH_OWNER  = "zivmiz";
+  var GH_REPO   = "poker-ledger";
+  var GH_BRANCH = "main";
+  var EDIT_URL  = "https://github.com/" + GH_OWNER + "/" + GH_REPO + "/edit/" + GH_BRANCH + "/data.json";
+
+  var LS_KEY = "poker-ledger-v1";
+  var STATE_TAG = "ledger-state";
+  var remote = null, dirty = false;
+
+  function setStoreLabel(){
+    var el = document.getElementById("storeState");
+    el.textContent = dirty
+      ? "יש שינויים מקומיים שטרם נשמרו בגיטהאב"
+      : "הנתונים נטענים מ‑data.json שברפוזיטורי";
+  }
+
+  function normalize(d){
+    return (d && Array.isArray(d.nights))
+      ? {v:1, sample:!!d.sample, nights:d.nights}
+      : null;
+  }
+  /* `remote` must stay the untouched picture of data.json, so everything
+     editable works on its own copy \u2014 otherwise an edit silently rewrites
+     the baseline it is compared against and nothing ever looks unsaved. */
+  function clone(d){ return JSON.parse(JSON.stringify(d)); }
+  function readEmbedded(){
+    var tag = document.getElementById(STATE_TAG);
+    if(!tag) return null;
+    try{ return normalize(JSON.parse(tag.textContent)); }catch(e){ return null; }
+  }
+  function loadLocal(){
+    try{ return normalize(JSON.parse(localStorage.getItem(LS_KEY))); }catch(e){ return null; }
+  }
+  function saveLocal(){
+    try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
+  }
+  function clearLocal(){
+    try{ localStorage.removeItem(LS_KEY); }catch(e){}
+  }
+
+  function fileJSON(){
+    return JSON.stringify({v:1, sample:!!state.sample, nights:sorted()}, null, 2) + "\n";
+  }
+  function sameAsRemote(){
+    return !!remote && JSON.stringify(remote.nights) === JSON.stringify(state.nights)
+                    && !!remote.sample === !!state.sample;
+  }
+  function refreshDirty(){
+    dirty = !sameAsRemote();
+    document.getElementById("dirtyBar").hidden = !dirty;
+    setStoreLabel();
+  }
+
+  function persist(){
+    saveLocal();
+    refreshDirty();
+  }
+
+  function initStore(){
+    document.getElementById("ghEdit").href = EDIT_URL;
+    fetch("data.json?t=" + Date.now(), {cache:"no-store"}).then(function(r){
+      return r.ok ? r.json() : null;
+    }).then(function(d){
+      remote = normalize(d);
+      if(!remote) return;
+      /* A viewer always sees the committed ledger. Only an admin keeps a
+         working copy, and only while it still differs from the file. */
+      if(!isUnlocked()){ clearLocal(); state = clone(remote); }
+      else {
+        var local = loadLocal();
+        if(local && JSON.stringify(local.nights) !== JSON.stringify(remote.nights)) state = local;
+        else { clearLocal(); state = clone(remote); }
+      }
+      render();
+      refreshDirty();
+    }).catch(function(){ /* offline or opened as a file: the embedded copy stands */ });
+  }
+
+  /* ── helpers ─────────────────────────────────────────────────────── */
+  var dayFmt = new Intl.DateTimeFormat("he-IL", {weekday:"long"});
+  function parseDate(s){ var p = String(s).split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+  function prettyDate(s){ var p = String(s).split("-"); return p[2] + "." + p[1] + "." + p[0].slice(2); }
+  function weekday(s){ try{ return dayFmt.format(parseDate(s)); }catch(e){ return ""; } }
+  function sorted(){
+    return state.nights.slice().sort(function(a,b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+  }
+  function el(tag, cls, txt){
+    var n = document.createElement(tag);
+    if(cls) n.className = cls;
+    if(txt != null) n.textContent = txt;
+    return n;
+  }
+  function useIcon(id, cls){
+    var svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
+    if(cls) svg.setAttribute("class", cls);
+    svg.setAttribute("aria-hidden","true");
+    var use = document.createElementNS("http://www.w3.org/2000/svg","use");
+    use.setAttribute("href", "#" + id);
+    svg.appendChild(use);
+    return svg;
+  }
+  var toastTimer;
+  function toast(msg){
+    var t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove("on"); }, 3200);
+  }
+  function winsOf(n, p){
+    var v = n.results ? n.results[p] : null;
+    return (typeof v === "number" && isFinite(v)) ? v : null;
+  }
+
+  /* ── מלך הכבשים / הכבש השבועי ────────────────────────────────────── */
+  /* King  = most wins that night (a tie crowns everyone tied).
+     Sheep = someone who played and won nothing. When several qualify one is
+     drawn — from the date itself, so the same night always names the same
+     sheep for everyone and never re-rolls on a reload. */
+  function kingsOf(n){
+    var best = -1;
+    PLAYERS.forEach(function(p){ var w = winsOf(n,p); if(w !== null && w > best) best = w; });
+    if(best <= 0) return {best:-1, list:[]};
+    return {best:best, list:PLAYERS.filter(function(p){ return winsOf(n,p) === best; })};
+  }
+  function hash(str){
+    var h = 2166136261;
+    for(var i = 0; i < str.length; i++){
+      h ^= str.charCodeAt(i);
+      h = (h * 16777619) >>> 0;
+    }
+    return h;
+  }
+  function sheepOf(n){
+    var pool = PLAYERS.filter(function(p){ return winsOf(n,p) === 0; });
+    if(!pool.length) return null;
+    return pool[hash(n.date + "|" + pool.join(",")) % pool.length];
+  }
+
+  /* ── רצף בלי טורניר ──────────────────────────────────────────────── */
+  /* Consecutive most-recent nights ending with zero wins. A night the player
+     sat out is skipped: it neither extends the run nor clears it, because
+     there was nothing to win. One win in the latest night resets it to 0. */
+  var DROUGHT_PLAYER = "עומר";
+
+  function dryStreak(all, p){
+    var n = 0;
+    for(var i = 0; i < all.length; i++){
+      var w = winsOf(all[i], p);
+      if(w === null) continue;
+      if(w === 0) n++; else break;
+    }
+    return n;
+  }
+  function longestDry(all, p){
+    var best = 0, cur = 0;
+    for(var i = all.length - 1; i >= 0; i--){
+      var w = winsOf(all[i], p);
+      if(w === null) continue;
+      if(w === 0){ cur++; if(cur > best) best = cur; } else { cur = 0; }
+    }
+    return best;
+  }
+  function weeksWord(n){
+    if(n === 1) return "שבוע ברצף";
+    if(n === 2) return "שבועיים ברצף";
+    return "שבועות ברצף";
+  }
+
+  /* ── stats ───────────────────────────────────────────────────────── */
+  function stats(all){
+    var out = {};
+    PLAYERS.forEach(function(p){
+      out[p] = {wins:0, played:0, nights:all.length, kings:0, sheeps:0,
+                dry:dryStreak(all, p), dryBest:longestDry(all, p)};
+    });
+    all.forEach(function(n){
+      PLAYERS.forEach(function(p){
+        var w = winsOf(n,p);
+        if(w !== null){ out[p].wins += w; out[p].played += 1; }
+      });
+      kingsOf(n).list.forEach(function(p){ out[p].kings += 1; });
+      var s = sheepOf(n);
+      if(s) out[s].sheeps += 1;
+    });
+    return out;
+  }
+
+  /* ── render: last night's king & sheep ───────────────────────────── */
+  function renderHeadline(all){
+    var host = document.getElementById("headline");
+    host.textContent = "";
+    if(!all.length) return;
+
+    var n = all[0];
+    var k = kingsOf(n);
+    var s = sheepOf(n);
+
+    var king = el("div","hl king panel");
+    var kmark = el("div","mark"); kmark.appendChild(useIcon("crown"));
+    king.appendChild(kmark);
+    var ktxt = el("div","txt");
+    ktxt.appendChild(el("span","lbl","מלך הכבשים"));
+    ktxt.appendChild(el("span","who", k.list.length ? k.list.join(" · ") : "אין"));
+    ktxt.appendChild(el("span","sub", k.list.length ? k.best + " ניצחונות בערב" : "אף אחד לא ניצח"));
+    king.appendChild(ktxt);
+    king.appendChild(el("span","when", prettyDate(n.date)));
+    host.appendChild(king);
+
+    var sheep = el("div","hl sheep panel");
+    var smark = el("div","mark"); smark.appendChild(useIcon("sheep"));
+    sheep.appendChild(smark);
+    var stxt = el("div","txt");
+    stxt.appendChild(el("span","lbl","הכבש השבועי"));
+    stxt.appendChild(el("span","who", s || "אין"));
+    stxt.appendChild(el("span","sub", s ? "סיים את הערב בלי ניצחון אחד" : "כולם ניצחו לפחות פעם אחת"));
+    sheep.appendChild(stxt);
+    sheep.appendChild(el("span","when", prettyDate(n.date)));
+    host.appendChild(sheep);
+
+    if(PLAYERS.indexOf(DROUGHT_PLAYER) !== -1){
+      var run = dryStreak(all, DROUGHT_PLAYER);
+      var rec = longestDry(all, DROUGHT_PLAYER);
+      var dry = el("div","hl dry panel" + (run === 0 ? " clean" : ""));
+      var dmark = el("div","mark"); dmark.appendChild(useIcon(run === 0 ? "crown" : "zero"));
+      dry.appendChild(dmark);
+      var dtxt = el("div","txt");
+      dtxt.appendChild(el("span","lbl","הבצורת של " + DROUGHT_PLAYER));
+      var who = el("span","who");
+      if(run === 0){
+        who.appendChild(document.createTextNode("הרצף אופס"));
+      } else {
+        who.appendChild(el("em","num", String(run)));
+        who.appendChild(document.createTextNode(weeksWord(run)));
+      }
+      dtxt.appendChild(who);
+      dtxt.appendChild(el("span","sub", run === 0
+        ? "לקח טורניר בערב האחרון · השיא: " + rec
+        : "בלי טורניר אחד · השיא: " + rec));
+      dry.appendChild(dtxt);
+      host.appendChild(dry);
+    }
+  }
+
+  /* ── render: standings ───────────────────────────────────────────── */
+  function renderStandings(st, all){
+    var host = document.getElementById("standings");
+    host.textContent = "";
+
+    var order = PLAYERS.slice().sort(function(a,b){
+      if(st[b].wins !== st[a].wins) return st[b].wins - st[a].wins;
+      return a.localeCompare(b, "he");
+    });
+    var topWins = order.length ? st[order[0]].wins : 0;
+
+    var maxNight = 1;
+    all.forEach(function(n){
+      PLAYERS.forEach(function(p){ var w = winsOf(n,p); if(w !== null && w > maxNight) maxNight = w; });
+    });
+    var chrono = all.slice().reverse();
+
+    order.forEach(function(p, i){
+      var s = st[p];
+      var isLead = (s.wins === topWins && topWins > 0);
+      var card = el("div", "pcard panel" + (isLead ? " lead" : ""));
+      card.style.setProperty("--chip", CHIP[p]);
+
+      var top = el("div","pcard-top");
+      top.appendChild(el("span","rank", (i+1) + "."));
+      var chip = el("span","chip");
+      chip.style.setProperty("--chip", CHIP[p]);
+      chip.appendChild(el("b", null, p.charAt(0)));
+      top.appendChild(chip);
+      top.appendChild(el("span","pname", p));
+      if(isLead){
+        var lm = useIcon("crown","leadmark");
+        lm.setAttribute("aria-label","המוביל הכללי");
+        top.appendChild(lm);
+      }
+      card.appendChild(top);
+
+      var nums = el("div","pcard-nums");
+      nums.appendChild(el("span","big", String(s.wins)));
+      nums.appendChild(el("small", null, "ניצחונות"));
+      card.appendChild(nums);
+
+      var meta = el("div","pmeta");
+      var m1 = el("span"); m1.appendChild(el("i",null,"ערבים ")); m1.appendChild(document.createTextNode(s.played + "/" + s.nights));
+      var avg = s.played ? (s.wins / s.played).toFixed(1) : "0.0";
+      var m2 = el("span"); m2.appendChild(el("i",null,"ממוצע ")); m2.appendChild(document.createTextNode(avg));
+      meta.appendChild(m1); meta.appendChild(m2);
+      var missed = s.nights - s.played;
+      if(missed > 0){
+        var m3 = el("span"); m3.style.color = "var(--out)"; m3.textContent = "החסיר " + missed;
+        meta.appendChild(m3);
+      }
+      card.appendChild(meta);
+
+      var tags = el("div","ptags");
+      var kt = el("span","tagpill k");
+      kt.appendChild(useIcon("crown")); kt.appendChild(document.createTextNode("מלך ×" + s.kings));
+      kt.title = "זכה בתואר מלך הכבשים " + s.kings + " פעמים";
+      tags.appendChild(kt);
+      var sht = el("span","tagpill s");
+      sht.appendChild(useIcon("sheep")); sht.appendChild(document.createTextNode("כבש ×" + s.sheeps));
+      sht.title = "נבחר לכבש השבועי " + s.sheeps + " פעמים";
+      tags.appendChild(sht);
+      if(s.dry > 0){
+        var dt = el("span","tagpill d");
+        dt.appendChild(useIcon("zero"));
+        dt.appendChild(document.createTextNode("יבש ×" + s.dry));
+        dt.title = "רצף נוכחי בלי טורניר: " + s.dry + " · השיא: " + s.dryBest;
+        tags.appendChild(dt);
+      }
+      card.appendChild(tags);
+
+      var spark = el("div","spark");
+      spark.setAttribute("aria-hidden","true");
+      chrono.forEach(function(n){
+        var w = winsOf(n,p);
+        var b = el("span","b" + (w === null ? " absent" : (w === 0 ? " zero" : "")));
+        if(w !== null && w > 0) b.style.blockSize = Math.max(14, Math.round((w / maxNight) * 100)) + "%";
+        b.title = prettyDate(n.date) + " · " + (w === null ? "לא שיחק" : w + " ניצחונות");
+        spark.appendChild(b);
+      });
+      card.appendChild(spark);
+
+      if(chrono.length){
+        var cap = el("div","spark-cap");
+        cap.appendChild(el("span",null,prettyDate(chrono[0].date)));
+        cap.appendChild(el("span",null,prettyDate(chrono[chrono.length-1].date)));
+        card.appendChild(cap);
+      }
+      host.appendChild(card);
+    });
+  }
+
+  /* ── render: ledger table ────────────────────────────────────────── */
+  function renderTable(st, all){
+    var thead = document.getElementById("thead");
+    var tbody = document.getElementById("tbody");
+    var tfoot = document.getElementById("tfoot");
+    thead.textContent = ""; tbody.textContent = ""; tfoot.textContent = "";
+
+    var hr = el("tr");
+    var thd = el("th","date-col","תאריך"); thd.scope = "col"; hr.appendChild(thd);
+    PLAYERS.forEach(function(p){
+      var th = el("th"); th.scope = "col";
+      th.style.setProperty("--chip", CHIP[p]);
+      var box = el("div","hname");
+      box.appendChild(el("span","hdot"));
+      box.appendChild(el("span",null,p));
+      th.appendChild(box);
+      hr.appendChild(th);
+    });
+    var thk = el("th",null,"מלך הכבשים"); thk.scope = "col"; hr.appendChild(thk);
+    var ths = el("th",null,"הכבש השבועי"); ths.scope = "col"; hr.appendChild(ths);
+    var tha = el("th"); tha.scope = "col"; tha.setAttribute("aria-label","פעולות"); hr.appendChild(tha);
+    thead.appendChild(hr);
+
+    if(!all.length){
+      var tr0 = el("tr");
+      var td0 = el("td","empty","הפנקס ריק. לחצו על «הוסף ערב» כדי לרשום את המשחק הראשון.");
+      td0.colSpan = PLAYERS.length + 4;
+      tr0.appendChild(td0); tbody.appendChild(tr0);
+      return;
+    }
+
+    all.forEach(function(n){
+      var tr = el("tr");
+      var k = kingsOf(n);
+      var sh = sheepOf(n);
+
+      var tdDate = el("td","date-col");
+      var dc = el("div","datecell");
+      dc.appendChild(el("b", null, prettyDate(n.date)));
+      dc.appendChild(el("span", null, weekday(n.date)));
+      tdDate.appendChild(dc);
+      tr.appendChild(tdDate);
+
+      PLAYERS.forEach(function(p){
+        var td = el("td");
+        var w = winsOf(n,p);
+        if(w === null){
+          var a = el("div","absent","✕");
+          a.title = p + " לא שיחק ב־" + prettyDate(n.date);
+          a.setAttribute("aria-label", p + " לא שיחק");
+          td.appendChild(a);
+        } else {
+          var isKing = (k.best > 0 && w === k.best);
+          var isSheep = (p === sh);
+          var s = el("div","score" + (w === 0 ? " nil" : "") + (isSheep ? " sheep" : "") + (isKing ? " top" : ""));
+          s.style.setProperty("--chip", CHIP[p]);
+          s.style.setProperty("--f", k.best > 0 ? (w / k.best) : 0);
+          if(w > 0) s.appendChild(el("span","fill"));
+          s.appendChild(el("b", null, String(w)));
+          if(isKing) s.appendChild(useIcon("crown","pip"));
+          else if(isSheep) s.appendChild(useIcon("sheep","pip s"));
+          s.title = p + " · " + prettyDate(n.date) + " · " + w + " ניצחונות"
+                  + (isKing ? " · מלך הכבשים" : "") + (isSheep ? " · הכבש השבועי" : "");
+          td.appendChild(s);
+        }
+        tr.appendChild(td);
+      });
+
+      var tdk = el("td");
+      if(k.list.length){
+        var vk = el("div","verdict k");
+        vk.appendChild(useIcon("crown"));
+        vk.appendChild(document.createTextNode(k.list.join(" · ")));
+        tdk.appendChild(vk);
+      } else { tdk.appendChild(el("div","verdict none","—")); }
+      tr.appendChild(tdk);
+
+      var tds = el("td");
+      if(sh){
+        var vs = el("div","verdict s");
+        vs.appendChild(useIcon("sheep"));
+        vs.appendChild(document.createTextNode(sh));
+        tds.appendChild(vs);
+      } else { tds.appendChild(el("div","verdict none","—")); }
+      tr.appendChild(tds);
+
+      var tda = el("td");
+      var tools = el("div","rowtools");
+      var edit = el("button","icon","✎");
+      edit.type = "button"; edit.title = "ערוך ערב"; edit.setAttribute("aria-label","ערוך ערב " + prettyDate(n.date));
+      edit.addEventListener("click", function(){ openDialog(n.id); });
+      var del = el("button","icon del","🗑");
+      del.type = "button"; del.title = "מחק ערב"; del.setAttribute("aria-label","מחק ערב " + prettyDate(n.date));
+      del.addEventListener("click", function(){ removeNight(n.id); });
+      tools.appendChild(edit); tools.appendChild(del);
+      tda.appendChild(tools);
+      tr.appendChild(tda);
+
+      tbody.appendChild(tr);
+    });
+
+    var maxTotal = 0;
+    PLAYERS.forEach(function(p){ if(st[p].wins > maxTotal) maxTotal = st[p].wins; });
+
+    var fr = el("tr");
+    fr.appendChild(el("td","date-col","סה״כ"));
+    PLAYERS.forEach(function(p){
+      fr.appendChild(el("td", st[p].wins === maxTotal && maxTotal > 0 ? "best" : null, String(st[p].wins)));
+    });
+    var totalWins = PLAYERS.reduce(function(a,p){ return a + st[p].wins; }, 0);
+    fr.appendChild(el("td",null,String(totalWins)));
+    fr.appendChild(el("td",null,""));
+    fr.appendChild(el("td",null,""));
+    tfoot.appendChild(fr);
+  }
+
+  /* ── render: all ─────────────────────────────────────────────────── */
+  function render(){
+    var all = sorted();
+    var st = stats(all);
+
+    document.getElementById("factNights").textContent = String(all.length);
+    document.getElementById("factWins").textContent = String(PLAYERS.reduce(function(a,p){ return a + st[p].wins; }, 0));
+    var order = PLAYERS.slice().sort(function(a,b){ return st[b].wins - st[a].wins; });
+    var best = order.length ? st[order[0]].wins : 0;
+    var leaders = order.filter(function(p){ return st[p].wins === best && best > 0; });
+    document.getElementById("factLeader").textContent = leaders.length ? leaders.join(" · ") : "—";
+
+    document.getElementById("sampleNotice").hidden = !state.sample;
+
+    renderHeadline(all);
+    renderStandings(st, all);
+    renderTable(st, all);
+  }
+
+  /* ── mutations ───────────────────────────────────────────────────── */
+  function removeNight(id){
+    var n = state.nights.filter(function(x){ return x.id === id; })[0];
+    if(!n) return;
+    if(!confirm("למחוק את הערב של " + prettyDate(n.date) + "?")) return;
+    state.nights = state.nights.filter(function(x){ return x.id !== id; });
+    state.sample = false;
+    persist(); render();
+    toast("הערב נמחק");
+  }
+  function clearAll(msg){
+    state = {v:1, sample:false, nights:[]};
+    persist(); render();
+    toast(msg);
+  }
+
+  /* ── dialog ──────────────────────────────────────────────────────── */
+  var dlg = document.getElementById("dlg");
+  var dlgForm = document.getElementById("dlgForm");
+  var dlgPlayers = document.getElementById("dlgPlayers");
+  var dlgDate = document.getElementById("dlgDate");
+  var dlgDelete = document.getElementById("dlgDelete");
+  var editingId = null;
+
+  function buildDialogRows(night){
+    dlgPlayers.textContent = "";
+    PLAYERS.forEach(function(p, i){
+      var w = night ? winsOf(night, p) : 0;
+      var played = (w !== null);
+      var row = el("div","prow" + (played ? "" : " off"));
+      row.style.setProperty("--chip", CHIP[p]);
+      row.appendChild(el("span","dot"));
+      row.appendChild(el("span","nm", p));
+
+      var lbl = el("label","tog");
+      var cb = document.createElement("input");
+      cb.type = "checkbox"; cb.checked = played; cb.id = "played-" + i;
+      lbl.appendChild(cb);
+      lbl.appendChild(document.createTextNode("שיחק"));
+      lbl.htmlFor = cb.id;
+      row.appendChild(lbl);
+
+      var step = el("div","stepper");
+      step.setAttribute("aria-disabled", played ? "false" : "true");
+      var minus = el("button",null,"−"); minus.type = "button"; minus.setAttribute("aria-label","פחות");
+      var num = document.createElement("input");
+      num.type = "number"; num.min = "0"; num.max = "99"; num.step = "1";
+      num.inputMode = "numeric"; num.id = "wins-" + i;
+      num.value = String(played ? w : 0);
+      num.setAttribute("aria-label", "ניצחונות של " + p);
+      var plus = el("button",null,"+"); plus.type = "button"; plus.setAttribute("aria-label","עוד");
+      minus.addEventListener("click", function(){ num.value = String(Math.max(0, (+num.value || 0) - 1)); });
+      plus.addEventListener("click", function(){ num.value = String(Math.min(99, (+num.value || 0) + 1)); });
+      step.appendChild(minus); step.appendChild(num); step.appendChild(plus);
+      row.appendChild(step);
+
+      cb.addEventListener("change", function(){
+        row.classList.toggle("off", !cb.checked);
+        step.setAttribute("aria-disabled", cb.checked ? "false" : "true");
+      });
+      dlgPlayers.appendChild(row);
+    });
+  }
+
+  function todayISO(){
+    var d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  }
+
+  function openDialog(id){
+    editingId = id || null;
+    var night = id ? state.nights.filter(function(x){ return x.id === id; })[0] : null;
+    document.getElementById("dlgTitle").textContent = night ? "עריכת ערב" : "ערב חדש";
+    dlgDate.value = night ? night.date : todayISO();
+    dlgDelete.hidden = !night;
+    buildDialogRows(night);
+    dlg.showModal();
+  }
+
+  dlgForm.addEventListener("submit", function(){
+    var results = {};
+    PLAYERS.forEach(function(p, i){
+      var cb = document.getElementById("played-" + i);
+      var num = document.getElementById("wins-" + i);
+      results[p] = cb.checked ? Math.max(0, Math.min(99, parseInt(num.value, 10) || 0)) : null;
+    });
+    var date = dlgDate.value;
+    var existing = state.nights.filter(function(x){ return x.date === date && x.id !== editingId; })[0];
+
+    if(editingId){
+      state.nights = state.nights.map(function(x){
+        return x.id === editingId ? {id:x.id, date:date, results:results} : x;
+      });
+      if(existing) state.nights = state.nights.filter(function(x){ return x.id !== existing.id; });
+    } else if(existing){
+      state.nights = state.nights.map(function(x){
+        return x.id === existing.id ? {id:x.id, date:date, results:results} : x;
+      });
+    } else {
+      state.nights.push({id:"n" + Date.now().toString(36) + Math.random().toString(36).slice(2,6), date:date, results:results});
+    }
+    state.sample = false;
+    persist(); render();
+    toast(editingId ? "הערב עודכן" : "הערב נוסף לפנקס");
+    editingId = null;
+  });
+
+  document.getElementById("dlgCancel").addEventListener("click", function(){ editingId = null; dlg.close(); });
+  dlgDelete.addEventListener("click", function(){
+    var id = editingId; dlg.close(); editingId = null;
+    if(id) removeNight(id);
+  });
+
+  /* ── admin gate ──────────────────────────────────────────────────── */
+  /* A front-door latch, not security: the check runs in this page, so anyone
+     who reads the source can get past it. It keeps the ledger from being
+     edited by whoever the link is passed to — nothing more. */
+  var GATE_USER = 3285579754, GATE_PASS = 3211025194;
+  var GATE_KEY = "poker-ledger-admin";
+  var authDlg = document.getElementById("authDlg");
+  var authForm = document.getElementById("authForm");
+  var authUser = document.getElementById("authUser");
+  var authPass = document.getElementById("authPass");
+  var authErr = document.getElementById("authErr");
+
+  function setUnlocked(on, remember){
+    document.querySelector(".page").classList.toggle("ro", !on);
+    document.getElementById("whoami").hidden = !on;
+    if(remember){
+      try{
+        if(on) sessionStorage.setItem(GATE_KEY, "1");
+        else sessionStorage.removeItem(GATE_KEY);
+      }catch(e){}
+    }
+  }
+  function isUnlocked(){
+    try{ return sessionStorage.getItem(GATE_KEY) === "1"; }catch(e){ return false; }
+  }
+
+  document.getElementById("loginBtn").addEventListener("click", function(){
+    authErr.hidden = true;
+    authUser.value = ""; authPass.value = "";
+    authDlg.showModal();
+    authUser.focus();
+  });
+  document.getElementById("authCancel").addEventListener("click", function(){ authDlg.close(); });
+  authForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    var ok = hash("wbpc:" + authUser.value.trim()) === GATE_USER
+          && hash("wbpc:" + authPass.value) === GATE_PASS;
+    if(!ok){
+      authErr.hidden = false;
+      authPass.value = "";
+      authPass.focus();
+      return;
+    }
+    authPass.value = "";
+    authDlg.close();
+    setUnlocked(true, true);
+    var local = loadLocal();
+    if(local && remote && JSON.stringify(local.nights) !== JSON.stringify(remote.nights)){
+      state = local; render();
+    }
+    refreshDirty();
+    toast("ברוך הבא — העריכה פתוחה");
+  });
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(dirty && !confirm("יש שינויים שלא נשמרו בגיטהאב. לצאת בכל זאת? הם יישארו בדפדפן.")) return;
+    setUnlocked(false, true);
+    refreshDirty();
+    toast("יצאת ממצב עריכה");
+  });
+
+  /* ── toolbar ─────────────────────────────────────────────────────── */
+  document.getElementById("addNight").addEventListener("click", function(){ openDialog(null); });
+  document.getElementById("clearSample").addEventListener("click", function(){
+    if(confirm("למחוק את נתוני הדוגמה ולהתחיל פנקס ריק?")) clearAll("הפנקס אופס — קדימה, ערב ראשון");
+  });
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    if(confirm("לאפס את כל הפנקס? כל הערבים יימחקו.")) clearAll("הפנקס אופס");
+  });
+
+  document.getElementById("copyJson").addEventListener("click", function(){
+    var json = fileJSON();
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(json).then(
+        function(){ toast("הועתק — עכשיו פתח את data.json והדבק"); },
+        function(){ toast("ההעתקה נחסמה — השתמש בייצוא JSON"); });
+    } else { toast("ההעתקה לא נתמכת כאן — השתמש בייצוא JSON"); }
+  });
+
+  document.getElementById("discardBtn").addEventListener("click", function(){
+    if(!remote) return;
+    if(!confirm("לבטל את כל השינויים שלא נשמרו ולחזור לגרסה שבגיטהאב?")) return;
+    clearLocal();
+    state = clone(remote);
+    render(); refreshDirty();
+    toast("חזרנו לגרסה שבגיטהאב");
+  });
+
+  document.getElementById("exportBtn").addEventListener("click", function(){
+    var blob = new Blob([fileJSON()], {type:"application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "data.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+    toast("data.json ירד — אפשר לגרור אותו לגיטהאב");
+  });
+
+  /* ── boot ────────────────────────────────────────────────────────── */
+  state = readEmbedded() || seed();
+  setUnlocked(isUnlocked(), false);
+  render();
+  setStoreLabel();
+  initStore();
+})();
+</script>
+
+</body>
+</html>
