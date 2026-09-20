@@ -137,8 +137,13 @@ h1 em{font-style:normal;color:var(--amber)}
 .hl.king .who{color:var(--amber)}
 .hl.sheep .mark{color:var(--out);background:var(--out-soft);border-color:var(--out-soft)}
 .hl.sheep .who{color:var(--ink)}
-.hl.dry .mark{color:var(--out);background:var(--out-soft);border-color:var(--out-soft)}
-.hl.dry.clean .mark{color:var(--amber);background:var(--amber-soft);border-color:var(--amber-glow)}
+.hl.dry .mark{
+  inline-size:58px;block-size:58px;padding:0;overflow:hidden;border-radius:50%;
+  border:2px solid var(--out);background:var(--out-soft);
+  box-shadow:0 0 0 4px var(--out-soft);
+}
+.hl.dry.clean .mark{border-color:var(--amber);background:var(--amber-soft);box-shadow:0 0 0 4px var(--amber-soft)}
+.hl.dry .mark img{inline-size:100%;block-size:100%;object-fit:cover;display:block}
 .hl .who .num{
   font-family:var(--f-num);font-style:normal;font-weight:900;font-size:34px;line-height:1;
   font-variant-numeric:tabular-nums;color:var(--out);margin-inline-end:4px;
@@ -816,7 +821,12 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
       var run = dryStreak(all, DROUGHT_PLAYER);
       var rec = longestDry(all, DROUGHT_PLAYER);
       var dry = el("div","hl dry panel" + (run === 0 ? " clean" : ""));
-      var dmark = el("div","mark"); dmark.appendChild(useIcon(run === 0 ? "crown" : "zero"));
+      var dmark = el("div","mark");
+      var face = document.createElement("img");
+      face.src = "omer.jpg";
+      face.width = 58; face.height = 58;
+      face.alt = DROUGHT_PLAYER;
+      dmark.appendChild(face);
       dry.appendChild(dmark);
       var dtxt = el("div","txt");
       dtxt.appendChild(el("span","lbl","הבצורת של " + DROUGHT_PLAYER));
