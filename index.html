@@ -343,6 +343,56 @@ tfoot td.best{color:var(--amber)}
 .whoami[hidden],.autherr[hidden],.ro .whoami{display:none}
 .whoami svg{inline-size:17px;block-size:14px}
 
+/* ── the ledger on a phone: one card per night ───────────────────────── */
+.nights{display:none;flex-direction:column;gap:10px}
+.night{
+  display:flex;flex-direction:column;gap:12px;padding:14px;border-radius:var(--rad);
+  border:1px solid var(--rule);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,.05) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg,var(--felt-2),var(--felt));
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 18px 40px -28px rgba(0,0,0,.95);
+}
+.night-head{display:flex;align-items:center;gap:10px}
+.night-head .datecell{padding-block:0}
+.night-head .rowtools{margin-inline-start:auto;padding-inline-end:0}
+.night-verdicts{display:flex;gap:7px;flex-wrap:wrap}
+.night-verdicts .verdict{
+  padding:5px 11px;border-radius:999px;font-size:13px;
+  border:1px solid var(--rule-soft);background:rgba(0,0,0,.26);
+}
+.night-verdicts .verdict.k{border-color:var(--amber-soft)}
+.night-verdicts .verdict.s{border-color:var(--out-soft)}
+.night-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.tile{
+  display:flex;flex-direction:column;align-items:center;gap:3px;min-inline-size:0;
+  padding:9px 4px 7px;border-radius:11px;border:1px solid transparent;
+  background:rgba(255,255,255,.055);
+}
+.tile .tdot{inline-size:8px;block-size:8px;border-radius:50%;background:var(--chip);flex:0 0 auto}
+.tile .tname{
+  font-size:11.5px;color:var(--ink-2);font-weight:700;max-inline-size:100%;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.tile .tnum{font-family:var(--f-num);font-weight:900;font-size:19px;line-height:1;font-variant-numeric:tabular-nums}
+.tile.nil .tnum{color:var(--ink-3);font-weight:700}
+.tile.king{border-color:var(--amber);background:var(--amber-soft)}
+.tile.king .tnum{color:var(--amber)}
+.tile.sheep{border-color:rgba(226,87,62,.34);background:var(--out-soft)}
+.tile.sheep .tnum{color:var(--out)}
+.tile.out{background:repeating-linear-gradient(45deg,var(--out-soft) 0 5px,transparent 5px 10px);box-shadow:inset 0 0 0 1px var(--out-soft)}
+.tile.out .tnum{color:var(--out);font-size:15px}
+.night.totals{background:rgba(12,32,23,.82)}
+.night.totals .night-head b{font-size:12px;letter-spacing:.11em;color:var(--ink-3);font-family:var(--f-body)}
+.night.totals .tile{background:rgba(255,255,255,.04)}
+.night.totals .tile.best{border-color:var(--amber-soft)}
+.night.totals .tile.best .tnum{color:var(--amber)}
+
+@media (max-width:719px){
+  .table-wrap{display:none}
+  .nights{display:flex}
+}
+
 /* ── legend ──────────────────────────────────────────────────────────── */
 .legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:14px;font-size:13px;color:var(--ink-2)}
 .legend .item{display:flex;gap:8px;align-items:center}
@@ -393,12 +443,55 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
 #toast.on{opacity:1;transform:none}
 
 @media (max-width:640px){
-  .masthead{padding-block:clamp(150px,44vw,230px) 26px;gap:20px}
-  .fact{padding:9px 14px}
-  .fact b{font-size:24px}
-  .legend{gap:10px 16px;font-size:12.5px}
-  .hl{padding:15px 16px;gap:13px}
-  .hl .who{font-size:22px}
+  .wrap{padding-inline:16px}
+  .masthead{padding-block:clamp(150px,44vw,230px) 26px;gap:18px}
+  h1{font-size:clamp(40px,12vw,56px)}
+  .facts{gap:8px}
+  .fact{padding:9px 13px;flex:1 1 0;min-inline-size:0}
+  .fact b{font-size:23px}
+  .fact.lead b{font-size:19px}
+  .fact span{font-size:10px;letter-spacing:.09em}
+  .legend{gap:9px 14px;font-size:12.5px}
+  .hl{padding:14px 15px;gap:13px}
+  .hl .who{font-size:21px}
+  .hl .mark{inline-size:46px;block-size:46px}
+  .hl .mark svg{inline-size:26px;block-size:22px}
+  .hl.dry .mark{inline-size:52px;block-size:52px}
+  .hl .when{font-size:11px}
+  .sec{margin-top:30px}
+  .sec-head h2{font-size:22px}
+
+  /* the standings turn into a compact list: identity left, score right */
+  .pcard{padding:13px 14px;gap:9px;display:grid;grid-template-columns:1fr auto;align-items:center}
+  .pcard:hover{transform:none}
+  .pcard-top{grid-column:1;gap:9px}
+  .pcard-nums{grid-column:2;grid-row:1;flex-direction:column;align-items:flex-end;gap:0}
+  .pcard .big{font-size:32px}
+  .pcard-nums small{padding-bottom:0;font-size:10px;letter-spacing:.06em}
+  .pname{font-size:19px}
+  .chip{inline-size:34px;block-size:34px}
+  .chip b{font-size:14px}
+  .pmeta,.ptags,.spark,.spark-cap{grid-column:1 / -1}
+  .pmeta{font-size:12px;gap:7px}
+
+  /* comfortable thumb targets */
+  .icon{inline-size:38px;block-size:38px;font-size:15px}
+  .btn.tiny{padding:8px 13px;font-size:13px}
+  .stepper button{inline-size:38px;block-size:38px;font-size:19px}
+  .stepper input{block-size:38px;inline-size:48px}
+  .dlg{padding:18px}
+  .prow{flex-wrap:wrap;row-gap:8px}
+  .prow .tog{order:3}
+  .prow .stepper{order:4}
+  .prow .nm{min-inline-size:0}
+  .dlg-players{max-block-size:52vh}
+  .dirty{padding:13px 15px}
+  .dirty .acts{inline-size:100%;margin-inline-start:0}
+  .dirty .acts .btn{flex:1 1 auto;text-align:center}
+}
+@media (max-width:339px){
+  .night-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .tile .tname{font-size:11px}
 }
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation-duration:.01ms !important}}
 </style>
@@ -444,7 +537,7 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
         <p class="tag">כמה ניצח כל אחד ומי יצא כבש, הפנקס רושם הכל</p>
       </div>
       <div class="facts">
-        <div class="fact"><b id="factNights">0</b><span>ערבים</span></div>
+        <div class="fact"><b id="factNights">0</b><span id="factNightsLbl">ערבים</span></div>
         <div class="fact"><b id="factWins">0</b><span>ניצחונות</span></div>
         <div class="fact lead"><b id="factLeader">—</b><span>מוביל כללי</span></div>
       </div>
@@ -493,6 +586,7 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
           <button class="btn primary" id="addNight" type="button">+ הוסף ערב</button>
         </div>
       </div>
+      <div class="nights" id="nights"></div>
       <div class="table-wrap">
         <table id="ledger">
           <thead id="thead"></thead>
@@ -560,7 +654,7 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
 
 <div id="toast" role="status" aria-live="polite"></div>
 
-<script id="ledger-state" type="application/json">{"v": 1, "sample": true, "nights": [{"id": "seed-0", "date": "2026-09-17", "results": {"זיו": 4, "אלדר": 2, "פלח": null, "אלוש": 1, "פיטרו": 3, "עומר": 0, "אלבז": 1}}, {"id": "seed-1", "date": "2026-09-10", "results": {"זיו": 1, "אלדר": 5, "פלח": 2, "אלוש": null, "פיטרו": 0, "עומר": 2, "אלבז": null}}, {"id": "seed-2", "date": "2026-09-03", "results": {"זיו": 2, "אלדר": 1, "פלח": 4, "אלוש": 2, "פיטרו": null, "עומר": 1, "אלבז": 0}}, {"id": "seed-3", "date": "2026-08-27", "results": {"זיו": 3, "אלדר": 0, "פלח": 1, "אלוש": 4, "פיטרו": 2, "עומר": null, "אלבז": 2}}, {"id": "seed-4", "date": "2026-08-20", "results": {"זיו": 0, "אלדר": 3, "פלח": 2, "אלוש": 1, "פיטרו": 4, "עומר": 1, "אלבז": null}}, {"id": "seed-5", "date": "2026-08-13", "results": {"זיו": 5, "אלדר": 1, "פלח": null, "אלוש": 0, "פיטרו": 1, "עומר": 3, "אלבז": 1}}, {"id": "seed-6", "date": "2026-08-06", "results": {"זיו": 2, "אלדר": 2, "פלח": 3, "אלוש": null, "פיטרו": 1, "עומר": 0, "אלבז": 3}}, {"id": "seed-7", "date": "2026-07-30", "results": {"זיו": 1, "אלדר": 4, "פלח": 0, "אלוש": 2, "פיטרו": null, "עומר": 2, "אלבז": 1}}, {"id": "seed-8", "date": "2026-07-23", "results": {"זיו": 3, "אלדר": 0, "פלח": 2, "אלוש": 3, "פיטרו": 2, "עומר": null, "אלבז": 0}}, {"id": "seed-9", "date": "2026-07-16", "results": {"זיו": 2, "אלדר": 1, "פלח": 1, "אלוש": null, "פיטרו": 3, "עומר": 2, "אלבז": 2}}]}</script>
+<script id="ledger-state" type="application/json">{"v": 1, "sample": false, "nights": [{"id": "nmu9mlurrmyn4", "date": "2026-09-19", "results": {"זיו": 3, "אלדר": 2, "פלח": 1, "אלוש": 0, "פיטרו": 0, "עומר": 0, "אלבז": null}}]}</script>
 
 <script>
 (function(){
@@ -918,6 +1012,8 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
       }
       card.appendChild(tags);
 
+      if(chrono.length < 3){ host.appendChild(card); return; }   /* a line needs a run to show */
+
       var spark = el("div","spark");
       spark.setAttribute("aria-hidden","true");
       chrono.forEach(function(n){
@@ -1055,12 +1151,103 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
     tfoot.appendChild(fr);
   }
 
+  /* ── render: the phone ledger ────────────────────────────────────── */
+  /* Same numbers as the table, ordered by that night's result instead of by
+     a fixed column, because a phone reads one evening at a time. */
+  function nightOrder(n){
+    return PLAYERS.slice().sort(function(a,b){
+      var wa = winsOf(n,a), wb = winsOf(n,b);
+      if(wa === null && wb === null) return a.localeCompare(b,"he");
+      if(wa === null) return 1;
+      if(wb === null) return -1;
+      if(wb !== wa) return wb - wa;
+      return a.localeCompare(b,"he");
+    });
+  }
+  function tile(p, label, cls){
+    var t = el("div","tile" + (cls ? " " + cls : ""));
+    t.style.setProperty("--chip", CHIP[p]);
+    t.appendChild(el("span","tdot"));
+    t.appendChild(el("span","tname", p));
+    t.appendChild(el("b","tnum", label));
+    return t;
+  }
+
+  function renderNights(st, all){
+    var host = document.getElementById("nights");
+    host.textContent = "";
+    if(!all.length){
+      host.appendChild(el("div","night empty","הפנקס ריק. לחצו על «הוסף ערב» כדי לרשום את המשחק הראשון."));
+      return;
+    }
+
+    all.forEach(function(n){
+      var k = kingsOf(n), sh = sheepOf(n);
+      var card = el("article","night");
+
+      var head = el("div","night-head");
+      var dc = el("div","datecell");
+      dc.appendChild(el("b", null, prettyDate(n.date)));
+      dc.appendChild(el("span", null, weekday(n.date)));
+      head.appendChild(dc);
+      var tools = el("div","rowtools");
+      var edit = el("button","icon","✎");
+      edit.type = "button"; edit.setAttribute("aria-label","ערוך ערב " + prettyDate(n.date));
+      edit.addEventListener("click", function(){ openDialog(n.id); });
+      var del = el("button","icon del","🗑");
+      del.type = "button"; del.setAttribute("aria-label","מחק ערב " + prettyDate(n.date));
+      del.addEventListener("click", function(){ removeNight(n.id); });
+      tools.appendChild(edit); tools.appendChild(del);
+      head.appendChild(tools);
+      card.appendChild(head);
+
+      var vs = el("div","night-verdicts");
+      var vk = el("span","verdict k");
+      vk.appendChild(useIcon("crown"));
+      vk.appendChild(document.createTextNode(k.list.length ? k.list.join(" · ") : "אין מלך"));
+      vs.appendChild(vk);
+      var vsh = el("span","verdict s");
+      vsh.appendChild(useIcon("sheep"));
+      vsh.appendChild(document.createTextNode(sh || "אין כבש"));
+      vs.appendChild(vsh);
+      card.appendChild(vs);
+
+      var grid = el("div","night-grid");
+      nightOrder(n).forEach(function(p){
+        var w = winsOf(n,p);
+        if(w === null){
+          grid.appendChild(tile(p, "✕", "out"));
+        } else {
+          var cls = (k.best > 0 && w === k.best) ? "king" : (p === sh ? "sheep" : (w === 0 ? "nil" : ""));
+          grid.appendChild(tile(p, String(w), cls));
+        }
+      });
+      card.appendChild(grid);
+      host.appendChild(card);
+    });
+
+    var maxTotal = 0;
+    PLAYERS.forEach(function(p){ if(st[p].wins > maxTotal) maxTotal = st[p].wins; });
+    var tot = el("article","night totals");
+    var th = el("div","night-head");
+    th.appendChild(el("b", null, "סה״כ העונה"));
+    tot.appendChild(th);
+    var tg = el("div","night-grid");
+    PLAYERS.slice().sort(function(a,b){ return st[b].wins - st[a].wins || a.localeCompare(b,"he"); })
+      .forEach(function(p){
+        tg.appendChild(tile(p, String(st[p].wins), st[p].wins === maxTotal && maxTotal > 0 ? "best" : ""));
+      });
+    tot.appendChild(tg);
+    host.appendChild(tot);
+  }
+
   /* ── render: all ─────────────────────────────────────────────────── */
   function render(){
     var all = sorted();
     var st = stats(all);
 
     document.getElementById("factNights").textContent = String(all.length);
+    document.getElementById("factNightsLbl").textContent = all.length === 1 ? "ערב" : "ערבים";
     document.getElementById("factWins").textContent = String(PLAYERS.reduce(function(a,p){ return a + st[p].wins; }, 0));
     var order = PLAYERS.slice().sort(function(a,b){ return st[b].wins - st[a].wins; });
     var best = order.length ? st[order[0]].wins : 0;
@@ -1072,6 +1259,7 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
     renderHeadline(all);
     renderStandings(st, all);
     renderTable(st, all);
+    renderNights(st, all);
   }
 
   /* ── mutations ───────────────────────────────────────────────────── */
