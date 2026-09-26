@@ -611,7 +611,7 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
       <div class="tools">
         <button class="btn tiny ghost" id="exportBtn" type="button">ייצוא JSON</button>
         <button class="btn tiny ghost danger" id="resetBtn" type="button">איפוס הפנקס</button>
-        <button class="btn tiny ghost" id="loginBtn" type="button">כניסת מנהל</button>
+        <button class="btn tiny ghost" id="loginBtn" type="button" hidden style="display:none">כניסת מנהל</button>
         <button class="btn tiny ghost" id="logoutBtn" type="button">יציאה</button>
       </div>
     </footer>
@@ -1388,6 +1388,9 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
   var authErr = document.getElementById("authErr");
 
   function setUnlocked(on, remember){
+    /* Editing through the site is disabled. The ledger is edited only by
+       committing data.json on GitHub, so the page is always view-only. */
+    on = false;
     document.querySelector(".page").classList.toggle("ro", !on);
     document.getElementById("whoami").hidden = !on;
     if(remember){
@@ -1398,7 +1401,8 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
     }
   }
   function isUnlocked(){
-    try{ return sessionStorage.getItem(GATE_KEY) === "1"; }catch(e){ return false; }
+    /* Never unlocked — editing through the site is disabled. */
+    return false;
   }
 
   document.getElementById("loginBtn").addEventListener("click", function(){
