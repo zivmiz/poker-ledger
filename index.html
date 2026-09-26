@@ -1009,7 +1009,7 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
       var meta = el("div","pmeta");
       var m1 = el("span"); m1.appendChild(el("i",null,"ערבים ")); m1.appendChild(document.createTextNode(s.played + "/" + s.nights));
       var avg = s.played ? (s.wins / s.played).toFixed(1) : "0.0";
-      var m2 = el("span"); m2.appendChild(el("i",null,"ממוצע ")); m2.appendChild(document.createTextNode(avg));
+      var m2 = el("span"); m2.appendChild(el("i",null,"ניצחונות/ערב ")); m2.appendChild(document.createTextNode(avg));
       meta.appendChild(m1); meta.appendChild(m2);
       var missed = s.nights - s.played;
       if(missed > 0){
