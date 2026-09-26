@@ -864,13 +864,23 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
   function stats(all){
     var out = {};
     PLAYERS.forEach(function(p){
-      out[p] = {wins:0, played:0, nights:all.length, kings:0, sheeps:0,
+      out[p] = {wins:0, losses:0, games:0, played:0, nights:all.length, kings:0, sheeps:0,
                 dry:dryStreak(all, p), dryBest:longestDry(all, p)};
     });
     all.forEach(function(n){
+      /* Total games that night = every win recorded, since each game has a
+         single winner. A player who took part played all of them, so his
+         losses that night are the games he took part in but did not win. */
+      var nightGames = 0;
+      PLAYERS.forEach(function(p){ var w = winsOf(n,p); if(w !== null) nightGames += w; });
       PLAYERS.forEach(function(p){
         var w = winsOf(n,p);
-        if(w !== null){ out[p].wins += w; out[p].played += 1; }
+        if(w !== null){
+          out[p].wins   += w;
+          out[p].losses += (nightGames - w);
+          out[p].games  += nightGames;
+          out[p].played += 1;
+        }
       });
       kingsOf(n).list.forEach(function(p){ out[p].kings += 1; });
       var s = sheepOf(n);
@@ -981,6 +991,20 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
       nums.appendChild(el("span","big", String(s.wins)));
       nums.appendChild(el("small", null, "ניצחונות"));
       card.appendChild(nums);
+
+      /* Win/loss record over the games the player took part in. */
+      var rec = el("div","pmeta");
+      var rb = el("span");
+      rb.appendChild(el("i",null,"מאזן "));
+      rb.appendChild(document.createTextNode(s.wins + "–" + s.losses));
+      rb.title = s.wins + " ניצחונות · " + s.losses + " הפסדים · מתוך " + s.games + " משחקים";
+      var rate = s.games ? Math.round(s.wins / s.games * 100) : 0;
+      var rp = el("span");
+      rp.appendChild(el("i",null,"זכייה "));
+      rp.appendChild(document.createTextNode(rate + "%"));
+      rp.title = "אחוז זכייה מתוך המשחקים שהשתתף בהם";
+      rec.appendChild(rb); rec.appendChild(rp);
+      card.appendChild(rec);
 
       var meta = el("div","pmeta");
       var m1 = el("span"); m1.appendChild(el("i",null,"ערבים ")); m1.appendChild(document.createTextNode(s.played + "/" + s.nights));
