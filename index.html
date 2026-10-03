@@ -824,10 +824,15 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
     }
     return h;
   }
+  var SHEEP_AVOID = "זיו";
   function sheepOf(n){
     var pool = PLAYERS.filter(function(p){ return winsOf(n,p) === 0; });
     if(!pool.length) return null;
-    return pool[hash(n.date + "|" + pool.join(",")) % pool.length];
+    /* Same deterministic draw, but keep Ziv out of it unless he is the only
+       candidate — he carries the sheep only when there is no one else. */
+    var draw = pool.filter(function(p){ return p !== SHEEP_AVOID; });
+    if(!draw.length) draw = pool;
+    return draw[hash(n.date + "|" + draw.join(",")) % draw.length];
   }
 
   /* ── רצף בלי טורניר ──────────────────────────────────────────────── */
