@@ -888,8 +888,8 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
         }
       });
       kingsOf(n).list.forEach(function(p){ out[p].kings += 1; });
-      var s = sheepOf(n);
-      if(s) out[s].sheeps += 1;
+      /* A sheep night = one the player took part in and won no game at all. */
+      PLAYERS.forEach(function(p){ if(winsOf(n,p) === 0) out[p].sheeps += 1; });
     });
     return out;
   }
@@ -1030,7 +1030,7 @@ dialog::backdrop{background:rgba(8,5,3,.72);-webkit-backdrop-filter:blur(3px);ba
       tags.appendChild(kt);
       var sht = el("span","tagpill s");
       sht.appendChild(useIcon("sheep")); sht.appendChild(document.createTextNode("כבש ×" + s.sheeps));
-      sht.title = "נבחר לכבש השבועי " + s.sheeps + " פעמים";
+      sht.title = "שיחק ולא ניצח באף משחק ב-" + s.sheeps + " ערבים";
       tags.appendChild(sht);
       if(s.dry > 0){
         var dt = el("span","tagpill d");
